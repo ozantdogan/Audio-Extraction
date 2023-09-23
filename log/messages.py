@@ -29,22 +29,6 @@ def silent_removed_message(filename):
     message = f"({filename}) Silent segment at the end removed successfully."
     logger.info(message)
 
-def no_merge_performed_message(filename):
-    message = f"({filename}) No valid segments found. No merge performed."
-    logger.info(message)
-
-def audio_chunks_generated_message(filename, *args):
-    info = ""
-    if len(args) == 1 and all(isinstance(arg, int) for arg in args):
-        info = f"{args[0]}"
-
-    message = f"({filename}) Audio file split into {info} chunks."
-    logger.info(message)
-
-def audio_chunks_cleaned_message(filename):
-    message = f"({filename}) Audio chunks deleted."
-    logger.info(message)
-
 def process_completed_message(filename):
     message = f"({filename}) Process completed successfully."
     logger.info(message)
