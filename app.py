@@ -1,5 +1,4 @@
 import webbrowser
-from threading import Timer
 from flask import Flask, request, jsonify
 from flask_restful import Api
 from flasgger import Swagger
@@ -31,5 +30,8 @@ def extract():
         return jsonify({"error": e}), 500
     
 if __name__ == '__main__':
-    Timer(3, webbrowser.open_new('http://127.0.0.1:5000/apidocs')).start();
+    if not os.environ.get("WERKZEUG_RUN_MAIN"):
+        webbrowser.open_new('http://127.0.0.1:5000/apidocs')
+
+    app.run(host="127.0.0.1", port=5000)
     app.run(debug=True)
