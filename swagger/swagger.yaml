@@ -1,0 +1,35 @@
+swagger: '2.0'
+info:
+  title: Audio Extraction
+  version: 1.0
+  description: API Documentation for Audio Extraction
+paths:
+  /extract:
+    get:
+      summary: Get audio for the video file.
+      parameters:
+        - name: file
+          in: query
+          type: string
+          required: true
+          description: The path to the input video file.
+      responses:
+        '200':
+          description: Extraction process completed successfully.
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: A success message.
+        '500':
+          description: An error occurred during the extraction process.
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                description: An error message.
+
+
+  
